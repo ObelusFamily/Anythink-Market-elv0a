@@ -10,6 +10,7 @@ import {
   EDITOR_PAGE_UNLOADED,
   UPDATE_FIELD_EDITOR,
 } from "../constants/actionTypes";
+import defaultIMG from '../imgs/placeholder.png';
 
 const mapStateToProps = (state) => ({
   ...state.editor,
@@ -30,7 +31,7 @@ class Editor extends React.Component {
     super();
 
     const updateFieldEvent = (key) => (ev) =>
-      this.props.onUpdateField(key, ev.target.value);
+    this.props.onUpdateField(key, ev.target.value);
     this.changeTitle = updateFieldEvent("title");
     this.changeDescription = updateFieldEvent("description");
     this.changeImage = updateFieldEvent("image");
@@ -47,12 +48,30 @@ class Editor extends React.Component {
       this.props.onRemoveTag(tag);
     };
 
+    // Checks if image exist
+    this.checkIMG = (IMGUrl) => {
+      const img = new Image();
+      img.src = IMGUrl;
+  
+      if (img.complete) {
+        return true;
+      } else {
+        img.onload = () => {
+          return true;
+        };
+        
+        img.onerror = () => {
+          return false;
+        };
+      }
+    }
+
     this.submitForm = (ev) => {
       ev.preventDefault();
       const item = {
         title: this.props.title,
         description: this.props.description,
-        image: this.props.image,
+        image: this.checkIMG(this.props.image) ? this.props.image : defaultIMG,
         tagList: this.props.tagList,
       };
 
