@@ -41,12 +41,12 @@ const ItemPreview = (props) => {
       img.onload = () => {
         return true;
       };
-      
+
       img.onerror = () => {
         return false;
       };
     }
-  }
+  };
 
   return (
     <div
