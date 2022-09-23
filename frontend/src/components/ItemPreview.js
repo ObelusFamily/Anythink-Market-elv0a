@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import agent from "../agent";
 import { connect } from "react-redux";
 import { ITEM_FAVORITED, ITEM_UNFAVORITED } from "../constants/actionTypes";
+import defaultIMG from "../imgs/placeholder.png";
 
 const mapDispatchToProps = (dispatch) => ({
   favorite: (slug) =>
@@ -29,6 +30,24 @@ const ItemPreview = (props) => {
     }
   };
 
+  // Checks if img url is valid
+  const checkIfImageExists = (url) => {
+    const img = new Image();
+    img.src = url;
+
+    if (img.complete) {
+      return true;
+    } else {
+      img.onload = () => {
+        return true;
+      };
+
+      img.onerror = () => {
+        return false;
+      };
+    }
+  };
+
   return (
     <div
       className="card bg-dark border-light p-3"
@@ -36,7 +55,7 @@ const ItemPreview = (props) => {
     >
       <img
         alt="item"
-        src={item.image}
+        src={checkIfImageExists(item.image) ? item.image : defaultIMG}
         className="card-img-top item-img"
         style={{ borderRadius: "20px" }}
       />
