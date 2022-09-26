@@ -10,6 +10,25 @@ import {
   EDITOR_PAGE_UNLOADED,
   UPDATE_FIELD_EDITOR,
 } from "../constants/actionTypes";
+//ALT
+import defaultIMG from '../imgs/placeholder.png';
+
+function checkIfImageExists(url) {
+  const img = new Image();
+  img.src = url;
+
+  if (img.complete) {
+    return true;
+  } else {
+    img.onload = () => {
+      return true;
+    };
+    
+    img.onerror = () => {
+      return false;
+    };
+  }
+}
 
 const mapStateToProps = (state) => ({
   ...state.editor,
@@ -52,7 +71,7 @@ class Editor extends React.Component {
       const item = {
         title: this.props.title,
         description: this.props.description,
-        image: this.props.image,
+        image: checkIfImageExists(this.props.image) ? this.props.image : defaultIMG,
         tagList: this.props.tagList,
       };
 
