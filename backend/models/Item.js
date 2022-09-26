@@ -8,7 +8,6 @@ var ItemSchema = new mongoose.Schema(
     slug: { type: String, lowercase: true, unique: true },
     title: String,
     description: String,
-    //ALT 
     image: {
       type: String,
       default: 'Placeholder'
