@@ -10,10 +10,24 @@ import {
   PROFILE_PAGE_UNLOADED,
   PROFILE_FAVORITES_PAGE_LOADED,
   PROFILE_FAVORITES_PAGE_UNLOADED,
+  CHANGE_SEARCH_TERM,
+  CLEAR_SEARCH_TERM,
 } from "../constants/actionTypes";
 
 const reducer = (state = {}, action) => {
   switch (action.type) {
+    case CHANGE_SEARCH_TERM:
+      return {
+        ...state,
+        items: action.items,
+        searchTerm: action.payload,
+      };
+    case CLEAR_SEARCH_TERM:
+      return {
+        ...state,
+        items: action.items,
+        searchTerm: "",
+      };
     case ITEM_FAVORITED:
     case ITEM_UNFAVORITED:
       return {
