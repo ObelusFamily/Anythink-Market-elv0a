@@ -49,12 +49,12 @@ const Banner = (props) => {
           <span id="get-part">
             A place to <span onClick={toggleInput}>get </span>
           </span>
-          <input
-            id="search-box"
-            style={{ display: "none" }}
-            onChange={props.onInputChange}
-            placeholder="What is it that you truly desire?"
-          />
+          <div id="search-box" style={{ display: "none" }}>
+            <input
+              onChange={props.onInputChange}
+              placeholder="What is it that you truly desire?"
+            />
+          </div>
           <span> the cool stuff.</span>
         </div>
       </div>
