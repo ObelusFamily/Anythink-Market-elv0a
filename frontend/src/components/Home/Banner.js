@@ -32,9 +32,12 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
+const displayTimeout = () => {
+  return (document.getElementById("search-box").style.display = "initial");
+};
+
 const toggleInput = () => {
-  document.getElementById("searchInput").innerHTML =
-    '<input id="search-box" onChange={props.onInputChange} className="hide" placeholder="What is it that you truly desire?" />';
+  setInterval(displayTimeout, 1000);
 };
 
 const Banner = (props) => {
@@ -44,9 +47,14 @@ const Banner = (props) => {
         <img src={logo} alt="banner" />
         <div>
           <span id="get-part">
-            A place to <span onClick={toggleInput}>get</span>
+            A place to <span onClick={toggleInput}>get </span>
           </span>
-          <span id="searchInput"></span>
+          <input
+            id="search-box"
+            style={{ display: "none" }}
+            onChange={props.onInputChange}
+            placeholder="What is it that you truly desire?"
+          />
           <span> the cool stuff.</span>
         </div>
       </div>
