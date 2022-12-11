@@ -1,10 +1,23 @@
 import ItemPreview from "./ItemPreview";
 import ListPagination from "./ListPagination";
 import React from "react";
+import { IoSadSharp } from 'react-icons/io5';
+import { connect } from "react-redux";
+
+const mapStateToProps = (state) => ({
+  searchTerm: state.itemList.searchTerm
+});
 
 const ItemList = (props) => {
   if (!props.items) {
     return <div className="py-4">Loading...</div>;
+  }
+
+  if (props.searchTerm && props.items.length == 0) {
+    return (<div className="scold-text" id="empty">
+      <h1><IoSadSharp/></h1>
+      <p>No items found for "<strong>{props.searchTerm}</strong>"</p>
+    </div>)
   }
 
   if (props.items.length === 0) {
@@ -32,4 +45,4 @@ const ItemList = (props) => {
   );
 };
 
-export default ItemList;
+export default connect(mapStateToProps)(ItemList);
