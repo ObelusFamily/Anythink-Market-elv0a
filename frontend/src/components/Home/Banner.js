@@ -33,8 +33,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const toggleInput = () => {
-  document.getElementById("search-box").style.visibility = "visible";
-  document.getElementById('search-box').style.display = "contents";
+  document.getElementById('search-box').style.display = "initial";
 };
 
 const Banner = (props) => {
