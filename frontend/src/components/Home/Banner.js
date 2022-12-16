@@ -32,12 +32,9 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-const displayTimeout = () => {
-  return (document.getElementById("search-box").style.visibility = "visible");
-};
-
 const toggleInput = () => {
-  setInterval(displayTimeout, 1000);
+  document.getElementById("search-box").style.visibility = "visible";
+  document.getElementById('search-box').style.display = "contents";
 };
 
 const Banner = (props) => {
@@ -49,7 +46,7 @@ const Banner = (props) => {
           <span id="get-part">
             A place to <span onClick={toggleInput}>get </span>
           </span>
-          <div id="search-box" style={{ visibility: "hidden" }}>
+          <div id="search-box">
             <input
               onChange={props.onInputChange}
               placeholder="What is it that you truly desire?"
