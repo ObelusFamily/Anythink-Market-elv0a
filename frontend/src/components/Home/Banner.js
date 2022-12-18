@@ -33,7 +33,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const toggleInput = () => {
-  document.getElementById("search-box").style.display = "initial";
+  document.getElementById("search-box").style.display = "contents";
 };
 
 const Banner = (props) => {
@@ -42,14 +42,15 @@ const Banner = (props) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" />
         <div>
-          <span id="get-part" onClick={toggleInput}>
-            A place to get 
+          <span id="get-part">
+            A place to <span onClick={toggleInput}>get </span>
           </span>
+          <div id="search-box">
             <input
-              id="search-box"
               onChange={props.onInputChange}
               placeholder="What is it that you truly desire?"
             />
+          </div>
           <span> the cool stuff.</span>
         </div>
       </div>
