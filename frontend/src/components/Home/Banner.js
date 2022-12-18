@@ -32,9 +32,13 @@ const mapDispatchToProps = (dispatch) => ({
   },
 });
 
-const toggleInput = () => {
+const clickTimeout = () => {
   document.getElementById("search-box").style.display = "initial";
   document.getElementById("search-box").style.visibility = "visible";
+};
+
+const toggleInput = () => {
+  setTimeout(clickTimeout, 1500);
 };
 
 const Banner = (props) => {
