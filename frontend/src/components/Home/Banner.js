@@ -52,7 +52,7 @@ const Banner = (props) => {
               get{" "}
             </span>
           </span>
-          <div id="search-box" style={{display: 'none'}}>
+          <div id="search-box" style={{ display: "none" }}>
             <input
               onChange={props.onInputChange}
               placeholder="What is it that you truly desire?"
