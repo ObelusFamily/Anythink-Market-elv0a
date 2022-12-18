@@ -33,7 +33,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const toggleInput = () => {
-  document.getElementById('search-box').style.display = "initial";
+  document.getElementById("search-box").style.display = "contents";
 };
 
 const Banner = (props) => {
@@ -45,7 +45,7 @@ const Banner = (props) => {
           <span id="get-part">
             A place to <span onClick={toggleInput}>get </span>
           </span>
-          <div id="search-box">
+          <div id="search-box" style={{ display: "none" }}>
             <input
               onChange={props.onInputChange}
               placeholder="What is it that you truly desire?"
