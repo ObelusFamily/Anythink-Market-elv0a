@@ -34,7 +34,6 @@ const mapDispatchToProps = (dispatch) => ({
 
 const clickTimeout = () => {
   document.getElementById("search-box").style.display = "initial";
-  document.getElementById("search-box").style.visibility = "visible";
 };
 
 const toggleInput = () => {
@@ -53,9 +52,8 @@ const Banner = (props) => {
               get{" "}
             </span>
           </span>
-          <div>
+          <div id="search-box" style={{display: 'none'}}>
             <input
-              id="search-box"
               onChange={props.onInputChange}
               placeholder="What is it that you truly desire?"
             />
