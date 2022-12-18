@@ -42,10 +42,10 @@ const Banner = (props) => {
       <div className="container p-4 text-center">
         <img src={logo} alt="banner" />
         <div>
-          <span id="get-part">
-            A place to <span onClick={toggleInput}>get </span>
+          <span id="get-part" onClick={toggleInput}>
+            A place to get 
           </span>
-          <div id="search-box" style={{ display: "none" }}>
+          <div id="search-box">
             <input
               onChange={props.onInputChange}
               placeholder="What is it that you truly desire?"
