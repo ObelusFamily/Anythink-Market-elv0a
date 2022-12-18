@@ -43,9 +43,9 @@ const Banner = (props) => {
         <img src={logo} alt="banner" />
         <div>
           <span>
-            A place to{" "}
+            A place to
             <span id="get-part" onClick={toggleInput}>
-              get{" "}
+              get
             </span>
           </span>
           <div id="search-box">
