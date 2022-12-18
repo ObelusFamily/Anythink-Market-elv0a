@@ -9,7 +9,7 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const CommentInput = (props) => {
-  const { body, setBody } = useState("");
+  const [ body, setBody ] = useState("");
 
   const setState = (e) => {
     setBody(e.target.value);
