@@ -45,12 +45,11 @@ const Banner = (props) => {
           <span id="get-part" onClick={toggleInput}>
             A place to get 
           </span>
-          <div id="search-box">
             <input
               onChange={props.onInputChange}
+              id="search-box"
               placeholder="What is it that you truly desire?"
             />
-          </div>
           <span> the cool stuff.</span>
         </div>
       </div>
