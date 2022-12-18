@@ -53,8 +53,9 @@ const Banner = (props) => {
               get{" "}
             </span>
           </span>
-          <div id="search-box">
+          <div>
             <input
+              id="search-box"
               onChange={props.onInputChange}
               placeholder="What is it that you truly desire?"
             />
